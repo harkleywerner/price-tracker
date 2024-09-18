@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "strict": true,
+      "allowJs": true,
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "skipLibCheck": true,
+      "outDir": "server/dist",
+      "rootDir": "server",
+      "noImplicitAny": true,
+      "noEmit": false,
+      "emitDeclarationOnly": false,
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": "./",
+  },
+  "include": ["server"]
+}
