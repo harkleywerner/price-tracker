@@ -69,12 +69,3 @@ const calculateEstimate = ({ materials, subProducts = [], cookingTime, energetic
 
 }
 
-const res = calculateEstimate({
-    cookingTime: 1,
-    energetic: "electricidad",
-    name: "milanesa",
-    materials: [
-        { name: "pechuga", quantity: 0.300 },
-        { name: "pan_rallado", quantity: 0.100 }
-    ],
-})

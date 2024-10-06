@@ -19,18 +19,14 @@ function App() {
 
   return (
     <>
-      <ResponsiveComponent
-        responsive={{
-          lg: {
-            animate: {
-              backgroundColor: "#000"
-            }
-          }
-        }}
-        breakpoints={breakpoints}
-      >asdsd</ResponsiveComponent>
+      <ResponsiveComponent  
+      
+      breakpoints = {breakpoints}>
+        asdsd
+      </ResponsiveComponent>
     </>
   )
 }
 
 export default App
+

@@ -4,21 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -p ./tsconfig.app.json && vite build",
+    "dev:client": "vite",
+    "build:client": "tsc -p ./tsconfig.node.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "dev:server" : "node server/dist/index.ts",
-    "build:server" : "tsc -p ./tsconfig.node.json"
-    
+    "dev:server": "node --watch dist/server/index.js ",
+    "build:server": "tsc -p ./tsconfig.node.json --watch"
   },
   "dependencies": {
-    "framer-motion": "^10.18.0",
+    "express": "^4.21.0",
+    "framer-motion": "^11.5.4",
+    "mysql2": "^3.11.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@types/express": "^4.17.21",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
