@@ -1,12 +1,9 @@
 import { Router } from "express"
+import controller from "../controllers/categories.controller.js"
+const categories = Router()
 
-const router = Router()
-
-
-// router.get()
-// router.post()
-
+categories.get("/",controller.get)
+categories.post("/",controller.post)
 
 
-
-export default router
+export default categories

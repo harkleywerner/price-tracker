@@ -1,10 +1,10 @@
 import { Router } from "express";
 import suppliesController from "../controllers/supplies.controller.js";
 
-const router = Router()
+const supplies = Router()
 
-router.get("/",suppliesController.get)
-router.post("/",suppliesController.post)
-router.post("/history",suppliesController.postHistory)
+supplies.get("/", suppliesController.get)
+supplies.post("/", suppliesController.post)
+supplies.post("/history", suppliesController.postHistory)
 
-export default router
+export default supplies

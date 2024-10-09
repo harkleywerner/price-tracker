@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import ErrorHandler from "../utils/ErrorHandler.utils.js";
 import suppliesModel, { AddSupplies, AddSuppliesPriceHistory, UpdateSupplyPrice } from "../models/supplies.model.js";
+import errorHandlerController from "../utils/ErrorHandlerController.utilts.js";
 
 interface SuppliesController {
     post: (req: Request<any, any, AddSupplies>, rest: Response, next: NextFunction) => void
@@ -11,46 +12,25 @@ interface SuppliesController {
 }
 
 const suppliesController: SuppliesController = {
-    get: async (req, res, next) => {
-        try {
-            const model = new suppliesModel()
-            const response = await model.getSupplies()
-            res.status(200).json({
-                code: 200,
-                data: response
-            })
-        } catch (error) {
-            if (error instanceof ErrorHandler) {
-                error.handler()
-            }
-            next()
-        }
+    get: async (req, res) => {
+        const model = new suppliesModel()
+        const response = await model.getSupplies()
+        res.status(200).json({
+            code: 200,
+            data: response
+        })
+
     },
-    postHistory: async (req, res, next) => {
-        try {
-            const model = new suppliesModel()
-            await model.addSuppliesPriceHistory(req.body)
-            res.status(201).json({ code: 201, message: "Precio guardado en el historial correctamente." })
-        } catch (error) {
-            if (error instanceof ErrorHandler) {
-                res.status(error.code).json(error.handler())
-            } else {
-                next()
-            }
-        }
+    postHistory: async (req, res) => {
+        const model = new suppliesModel()
+        await model.addSuppliesPriceHistory(req.body)
+        res.status(201).json({ code: 201, message: "Precio guardado en el historial correctamente." })
+
     },
-    put: async (req, res, next) => {
-        try {
-            const model = new suppliesModel()
-            await model.updateSupplyPrice(req.body)
-            res.status(201).json({ code: 201, message: "Precio actualizado correctamente." })
-        } catch (error) {
-            if (error instanceof ErrorHandler) {
-                res.status(error.code).json(error.handler())
-            } else {
-                next()
-            }
-        }
+    put: async (req, res) => {
+        const model = new suppliesModel()
+        await model.updateSupplyPrice(req.body)
+        res.status(201).json({ code: 201, message: "Precio actualizado correctamente." })
     },
     post: async (req, res, next) => {
         const model = new suppliesModel()
@@ -71,4 +51,4 @@ const suppliesController: SuppliesController = {
     }
 }
 
-export default suppliesController
+export default errorHandlerController(suppliesController)
