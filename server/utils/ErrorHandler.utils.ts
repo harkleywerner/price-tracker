@@ -11,7 +11,7 @@ class ErrorHandler extends Error {
     code: number
     constructor({ code, message, name }: ErrorHandlerProp) {
         super()
-        this.code = code || 0
+        this.code = code || 500
         this.message = message || super.message
         this.name = name || super.name
     }

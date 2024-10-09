@@ -15,5 +15,5 @@
       "allowSyntheticDefaultImports": true,
       "baseUrl": "./",
   },
-  "include": ["server"]
+  "include": ["server/*"]
 }
